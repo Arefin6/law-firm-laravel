@@ -45,8 +45,8 @@
         			<div class="image img-fluid">
 					<img src="{{$practice->img}}" alt="images" style="width:100%" >
         			</div>
-        			<h3 class="mb-3"><a href="practice-single.html">{{$practice->name}}</a></h3>
-        			<p>{{$practice->description}}</p>
+        			<h3 class="mb-3"><a href="{{route('practice.single',['slug' => $practice->slug])}}">{{$practice->name}}</a></h3>
+        			<p>{{str_limit($practice->description,50)}}</p>
         		</div>
         	</div>
 			@endforeach
@@ -57,21 +57,7 @@
                     	
                     @endif	
         
-        <div class="row mt-5">
-          <div class="col text-center">
-            <div class="block-27">
-              <ul>
-                <li><a href="#">&lt;</a></li>
-                <li class="active"><span>1</span></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#">4</a></li>
-                <li><a href="#">5</a></li>
-                <li><a href="#">&gt;</a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
+       
     	</div>
     </section>
 

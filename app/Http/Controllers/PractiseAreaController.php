@@ -57,7 +57,7 @@ class PractiseAreaController extends Controller
 
         Session::flash('success','Practice Area Added successfully');
 
-        return redirect()->back();
+        return redirect()->route('practice');
     }
 
     /**
@@ -95,7 +95,7 @@ class PractiseAreaController extends Controller
 		 $this->validate($request, [
             'name' => 'required',
             'description' => 'required',
-            'img' => 'required|image',
+    
         ]);
 		$practice = PracticeAreas::find($id);
 		

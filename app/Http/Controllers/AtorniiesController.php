@@ -105,7 +105,6 @@ class AtorniiesController extends Controller
             'name' => 'required',
             'description' => 'required',
             'education' => 'required',
-            'img' => 'required|image',
         ]);
 
         $atorny = Atornies::find($id);

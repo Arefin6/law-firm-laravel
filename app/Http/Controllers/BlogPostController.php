@@ -108,7 +108,6 @@ class BlogPostController extends Controller
         $this->validate($request, [
             'title' => 'required',
             'description' => 'required',
-            'img' => 'required|image',
         ]);
 
         $post = BlogPost::find($id);

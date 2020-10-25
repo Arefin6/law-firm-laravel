@@ -138,28 +138,32 @@
     </section>
 
     <section class="ftco-section bg-light">
+    
     	<div class="container">
+     
     		<div class="row justify-content-center mb-5 pb-3">
+         
           <div class="col-md-7 text-center heading-section ftco-animate">
           	
             <h2 class="mb-4">Practice Areas</h2>
           </div>
         </div>
-        <div class="row d-flex justify-content-center">
+        
         @if($practices->count()>0)
-        @foreach($practices as $practice)
-        	<div class="col-md-3 col-lg-2 text-center">
-        		<div class="practice-area ftco-animate">
-        			<div class="image">
-					<img  src="{{$practice->img}}" alt="images" style="width:100%" >
+        <div class="row d-flex justify-content-center">
+		   @foreach($practices as $practice)
+        	<div class="col-md-4 col-lg-3 text-center">
+        		<div class="practice-area bg-white ftco-animate p-4">
+        			<div class="image img-fluid">
+					<img src="{{$practice->img}}" alt="images" style="width:100%" >
         			</div>
-        			<h3><a href="{{route('practice.single',['slug' => $practice->slug])}}">{{$practice->name}}</a></h3>
+        			<h3 class="mb-3"><a href="{{route('practice.single',['slug' => $practice->slug])}}">{{$practice->name}}</a></h3>
+        			
         		</div>
         	</div>
-        	
-        </div>
-    	</div>
       @endforeach
+    
+      
 			@else
                     	<tr>
                     		<th colspan="5" class="text-center">No Practice Area Added Yet</th>
@@ -171,22 +175,19 @@
     <section class="ftco-section bg-secondary">
     	<div class="container-fluid">
     		<div class="row justify-content-center mb-5 pb-3">
-          <div class="col-md-7 text-center heading-section heading-section-white ftco-animate">
-          	
-            <h2 class="mb-4">Our Legal Attorneys</h2>
+          <div class="col-md-7 text-center heading-section ftco-animate">
+            <h2 class="mb-4" style="color:#eac15a;">Our Legal Attorneys</h2>
           </div>
         </div>
-		
-		
-          <div class="row">
-         @if($attorneys->count()>0)
-         @foreach($attorneys as $attorney)
-	
-		   <div class="card" style="width: 18rem;">
-         <img src="{{$attorney-> img}}" class="card-img-top" alt="images">
+        <div class="row">
+        @if($attorneys->count()>0)
+        @foreach($attorneys as $attorney)
+
+        	<div class="card ml-3 mr-2" style="width: 18rem;">
+         <img src="{{$attorney ->img}}" class="card-img-top" alt="images">
             <div class="card-body">
               <h5 class="card-title">{{$attorney->name}}</h5>
-                   <p class="card-text">{{$attorney->title}}</p>
+                   <p class="card-text">{{$attorney -> title}}</p>
 				   <div style="margin: 24px 0;">
                            <a href="#"><i class="fa fa-dribbble"></i></a> 
                            <a href="#"><i class="fa fa-twitter"></i></a>  
@@ -196,16 +197,19 @@
               <a href="{{route('message.create')}}" class="btn btn-primary">Contact</a>
             </div>
            </div>
-        
-		 </div>
-     @endforeach
+       @endforeach
 			 @else
                     	<tr>
                     		<th colspan="5" class="text-center">No Lawers yet</th>
                     	</tr>
                     	
        @endif	
-      </section>
+        	
+        	
+			</div>
+			</div>
+			</div>
+			</section>
 		
 
 
@@ -322,7 +326,7 @@
               		</div>
               	</div>
                 <h3 class="heading mt-2"><a href="{{route('post.single',['slug' => $post->slug])}}">{{ $post->title }}</a></h3>
-                <p>{{ $post->description }}</p>
+                <p>{{ str_limit($post->description,50) }}</p>
               </div>
             </div>
           </div>

@@ -12,9 +12,8 @@
      <div class="card col-md-4 mt-4 mb-3 ml-4" style="width: 18rem;">
       <img src="{{asset($post->img)}}" class="card-img-top" alt="...">
       <div class="card-body">
-        <a href="{{route('post.single',['slug' => $post->slug])}}" class="card-title text-dark" style="text-decoration:none;" >{{$post->title}}</a>
-        <p class="card-text">{{$post->description}}</p>
-        
+        <a href="{{route('post.single',['slug' => $post->slug])}}" class="card-title text-secondary" style="text-decoration:none;" >{{$post->title}}</a>
+        <p class="card-text">{{str_limit($post->description,50)}}</p>
       </div>
     </div>
         

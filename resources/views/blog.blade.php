@@ -61,7 +61,7 @@
               		</div>
               	</div>
                 <h3 class="heading mt-2"><a href="{{route('post.single',['slug' => $post->slug])}}">{{$post->title}}</a></h3>
-                <p>{{$post->description}}</p>
+                <p>{{str_limit($post->description,50)}}</p>
               </div>
             </div>
           </div>
